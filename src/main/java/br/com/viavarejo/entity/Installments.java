@@ -1,31 +1,33 @@
 package br.com.viavarejo.entity;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.Objects;
 
-import br.com.viavarejo.parambody.PaymentRules;
-import br.com.viavarejo.parambody.Product;
+import org.springframework.data.annotation.Immutable;
 
+@Immutable
 public class Installments {
 
 	private PaymentRules paymentRules;
 	private Product product;
 	private BigDecimal total;
 
-//	private List<Installment> installments;
-
-	public Installments(PaymentRules paymentRules, Product product, BigDecimal total) {
-		super();
-		this.paymentRules = paymentRules;
-		this.product = product;
-		this.total = total;
+	@Override
+	public final boolean equals(final Object other) {
+		if (!(other instanceof Installments)) {
+			return false;
+		}
+		Installments castOther = (Installments) other;
+		return Objects.equals(paymentRules, castOther.paymentRules) && Objects.equals(product, castOther.product)
+				&& Objects.equals(total, castOther.total);
 	}
 
-	public Installments() {
-
+	@Override
+	public final int hashCode() {
+		return Objects.hash(paymentRules, product, total);
 	}
 
 	public BigDecimal getTotal() {
@@ -35,14 +37,6 @@ public class Installments {
 	public void setTotal(BigDecimal total) {
 		this.total = total;
 	}
-
-//	public List<Installment> getInstallments() {
-//		return installments;
-//	}
-//
-//	public void setInstallments(List<Installment> installments) {
-//		this.installments = installments;
-//	}
 
 	public PaymentRules getPaymentRules() {
 		return paymentRules;

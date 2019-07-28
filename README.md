@@ -25,16 +25,17 @@ java -jar target/exercises-0.0.1-SNAPSHOT.jar
 * Build the javadoc by running `./mvnw javadoc:javadoc` inside backend-test project
 
 ## REST APIs Endpoints
-### Create a new Transaction deposit resource
+### Create a new  Product resource
 ```
 POST /installment/installments
 Accept: application/json
 Content-Type: application/json;charset=UTF-8
 
 {
-	"paymentRules":{"initValue":100.0,"qttInstallments":10},
- 	"product":{"code":"1","name":"Via Varejo's new product","value":0.0}
- }
+	"paymentRules":{"initValue":0.0,"qttInstallments":10},
+	"product":{"code":"1","name":"Via Varejo's new product","value":1000.0}
+}
+
 
 ```
 ### To view Swagger 2 API docs

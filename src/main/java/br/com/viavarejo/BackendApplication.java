@@ -2,6 +2,7 @@ package br.com.viavarejo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * That class is to used by Spring-boot to run that app.
@@ -12,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 
  */
 @SpringBootApplication
+@EnableFeignClients
 public class BackendApplication {
 
 	/**
