@@ -27,34 +27,14 @@ java -jar target/exercises-0.0.1-SNAPSHOT.jar
 ## REST APIs Endpoints
 ### Create a new Transaction deposit resource
 ```
-POST /api/transaction/monetary
+POST /installment/installments
 Accept: application/json
 Content-Type: application/json;charset=UTF-8
 
 {
-	"user":"Valkiria",
-	"value":1000.0
-}
-
-```
-
-### Find a Balance by User resource
-```
-GET /api/transaction/balance?user={user}
-Accept: application/json
-Content-Type: application/json
-
-
-```
-
-### Find a Queue resource
-```
-Get /api/queue/1
-Accept: application/json
-Content-Type: application/json
-
-```
-
+	"paymentRules":{"initValue":100.0,"qttInstallments":10},
+ 	"product":{"code":"1","name":"Via Varejo's new product","value":0.0}
+ }
 
 ```
 ### To view Swagger 2 API docs
