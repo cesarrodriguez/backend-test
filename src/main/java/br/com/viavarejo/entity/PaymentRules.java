@@ -1,27 +1,17 @@
-package br.com.viavarejo.parambody;
+package br.com.viavarejo.entity;
 
 import java.util.Objects;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.data.annotation.Immutable;
 
+@Immutable
 public class PaymentRules {
 
 	private Double initValue;
 	private Integer qttInstallments;
 
-	public PaymentRules() {
-		super();
-	}
-
-	public PaymentRules(Double initValue, Integer qttInstallments) {
-		super();
-		this.initValue = initValue;
-		this.qttInstallments = qttInstallments;
-	}
-
 	@Override
-	public boolean equals(final Object other) {
+	public final boolean equals(final Object other) {
 		if (!(other instanceof PaymentRules)) {
 			return false;
 		}
@@ -31,8 +21,18 @@ public class PaymentRules {
 	}
 
 	@Override
-	public int hashCode() {
+	public final int hashCode() {
 		return Objects.hash(initValue, qttInstallments);
+	}
+
+	public PaymentRules() {
+		super();
+	}
+
+	public PaymentRules(Double initValue, Integer qttInstallments) {
+		super();
+		this.initValue = initValue;
+		this.qttInstallments = qttInstallments;
 	}
 
 	public Double getInitValue() {
@@ -50,9 +50,4 @@ public class PaymentRules {
 	public void setQttInstallments(Integer qttInstallments) {
 		this.qttInstallments = qttInstallments;
 	}
-
-	public String toJson() throws JsonProcessingException {
-		return new ObjectMapper().writeValueAsString(this);
-	}
-
 }
